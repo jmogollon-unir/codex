@@ -1,0 +1,431 @@
+{
+    "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-schema-2.1.0.json",
+    "version": "2.1.0",
+    "runs": [
+        {
+            "tool": {
+                "driver": {
+                    "name": "SnykCode",
+                    "semanticVersion": "1.1308.4",
+                    "version": "1.1308.4",
+                    "informationUri": "https://docs.snyk.io/",
+                    "rules": [
+                        {
+                            "id": "javascript/DisablePoweredBy",
+                            "name": "DisablePoweredBy",
+                            "shortDescription": {
+                                "text": "Information Exposure - X-Powered-By Header"
+                            },
+                            "defaultConfiguration": {
+                                "level": "warning"
+                            },
+                            "help": {
+                                "markdown": "## Details\n\nSensitive data includes: personally identifiable information (PII) of employees, customers, users, or other third parties; financial information; code; intellectual property; or protected network information such as passwords. Exposure of sensitive information to an unauthorized actor occurs when any party who does not require this information for business purposes can remove this information from the secure network.\nConsequences of exposure can include holding it for ransom payment, identity theft, or access to other internal network resources-along with financial loss due to regulatory fines, court settlements, or cost to restore compromised systems. As most attackers aim to extract sensitive information, this CWE only describes exploits that take advantage of vulnerabilities related to how data is handled: the management, storage, transfer, or removal of sensitive information.\n\n## Best practices for prevention\n- Encrypt data at all times, whether in transit or at rest.\n- When transporting data, always use a secure protocol such as TLS.\n- Before collecting PII or financial information, consider whether there is a true business need for this information; similarly, before storing the data, ensure that there is an ongoing business need.\n- Classify all incoming data according to privacy and security guidelines to improve awareness of sensitive data.\n- Ensure that caching is disabled for all transactions involving sensitive information.\n- Store passwords with secure, salted hashing functions.\n- Apply a network-wide least-privilege policy so sensitive data is provided only to users with business need to know.",
+                                "text": ""
+                            },
+                            "properties": {
+                                "tags": [
+                                    "javascript",
+                                    "DisablePoweredBy",
+                                    "Security"
+                                ],
+                                "categories": [
+                                    "Security"
+                                ],
+                                "exampleCommitFixes": [],
+                                "exampleCommitDescriptions": [],
+                                "precision": "very-high",
+                                "repoDatasetSize": 0,
+                                "cwe": [
+                                    "CWE-200"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "javascript/NoSqli",
+                            "name": "NoSqli",
+                            "shortDescription": {
+                                "text": "NoSQL Injection"
+                            },
+                            "defaultConfiguration": {
+                                "level": "error"
+                            },
+                            "help": {
+                                "markdown": "## Details\n\nIn an NoSQL injection attack, the user can submit an NoSQL query directly to the database, gaining access without providing appropriate credentials. Attackers can then view, export, modify, and delete confidential information; change passwords and other authentication information; and possibly gain access to other systems within the network. This is one of the most commonly exploited categories of vulnerability, but can largely be avoided through good coding practices.",
+                                "text": ""
+                            },
+                            "properties": {
+                                "tags": [
+                                    "javascript",
+                                    "NoSqli",
+                                    "Security",
+                                    "SourceServer",
+                                    "SourceHttpBody",
+                                    "Taint"
+                                ],
+                                "categories": [
+                                    "Security"
+                                ],
+                                "exampleCommitFixes": [],
+                                "exampleCommitDescriptions": [],
+                                "precision": "very-high",
+                                "repoDatasetSize": 0,
+                                "cwe": [
+                                    "CWE-943"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "results": [
+                {
+                    "ruleId": "javascript/DisablePoweredBy",
+                    "ruleIndex": 0,
+                    "level": "warning",
+                    "message": {
+                        "text": "Disable X-Powered-By header for your Express app (consider using Helmet middleware), because it exposes information about the used framework to potential attackers.",
+                        "markdown": "Disable X-Powered-By header for your {0} (consider using Helmet middleware), because it exposes information about the used framework to potential attackers.",
+                        "arguments": [
+                            "[Express app](0)"
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "src/server.js",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "startLine": 17,
+                                    "endLine": 17,
+                                    "startColumn": 13,
+                                    "endColumn": 20
+                                }
+                            }
+                        }
+                    ],
+                    "fingerprints": {
+                        "0": "170f6a7647291eb33796ea4151021637e8cdb9a3acf820a35019f77fd78dca06",
+                        "1": "ae77ea27.4773f344.8b18f948.d7919eeb.a1fb1152.5fce695c.ea4b1c47.89d75565.ae77ea27.4773f344.c90145a5.c559ebce.79a7d027.5fce695c.60d372c8.89d75565",
+                        "snyk/asset/finding/v1": "b7ab8b9e-62a5-424f-8ff2-29ded8fef654",
+                        "identity": "b7ab8b9e-62a5-424f-8ff2-29ded8fef654"
+                    },
+                    "codeFlows": [
+                        {
+                            "threadFlows": [
+                                {
+                                    "locations": [
+                                        {
+                                            "location": {
+                                                "id": 0,
+                                                "physicalLocation": {
+                                                    "artifactLocation": {
+                                                        "uri": "src/server.js",
+                                                        "uriBaseId": "%SRCROOT%"
+                                                    },
+                                                    "region": {
+                                                        "startLine": 17,
+                                                        "endLine": 17,
+                                                        "startColumn": 13,
+                                                        "endColumn": 20
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "properties": {
+                        "isAutofixable": true,
+                        "priorityScore": 400,
+                        "priorityScoreFactors": [
+                            {
+                                "label": true,
+                                "type": "hotFileSource"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "ruleId": "javascript/NoSqli",
+                    "ruleIndex": 1,
+                    "level": "error",
+                    "message": {
+                        "text": "Unsanitized input from the HTTP request body flows into findOne, where it is used in an NoSQL query. This may result in an NoSQL Injection vulnerability.",
+                        "markdown": "Unsanitized input from {0} {1} into {2}, where it is used in an NoSQL query. This may result in an NoSQL Injection vulnerability.",
+                        "arguments": [
+                            "[the HTTP request body](0)",
+                            "[flows](1),(2),(3),(4),(5),(6),(7),(8),(9),(10)",
+                            "[findOne](11)"
+                        ]
+                    },
+                    "locations": [
+                        {
+                            "id": 0,
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "src/server.js",
+                                    "uriBaseId": "%SRCROOT%"
+                                },
+                                "region": {
+                                    "startLine": 34,
+                                    "endLine": 34,
+                                    "startColumn": 8,
+                                    "endColumn": 15
+                                }
+                            }
+                        }
+                    ],
+                    "fingerprints": {
+                        "snyk/asset/finding/v1": "7803149a-7160-4a73-9fcc-321640df7f16",
+                        "identity": "7803149a-7160-4a73-9fcc-321640df7f16",
+                        "0": "08a31e2ad8ba2919fadc54b5683b93a3b14730daf5ff2dfcb423f1cda6b003b2",
+                        "1": "839b1d0f.4773f344.c9330245.d7919eeb.ef9f7d82.8020cfdf.df7e59ba.d087f7d7.f759b1f9.c3da4a69.c9330245.08906714.ffb1246c.5fce695c.83265159.6723ddeb"
+                    },
+                    "codeFlows": [
+                        {
+                            "threadFlows": [
+                                {
+                                    "locations": [
+                                        {
+                                            "location": {
+                                                "id": 0,
+                                                "physicalLocation": {
+                                                    "artifactLocation": {
+                                                        "uri": "src/server.js",
+                                                        "uriBaseId": "%SRCROOT%"
+                                                    },
+                                                    "region": {
+                                                        "startLine": 23,
+                                                        "endLine": 23,
+                                                        "startColumn": 28,
+                                                        "endColumn": 32
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "location": {
+                                                "id": 1,
+                                                "physicalLocation": {
+                                                    "artifactLocation": {
+                                                        "uri": "src/server.js",
+                                                        "uriBaseId": "%SRCROOT%"
+                                                    },
+                                                    "region": {
+                                                        "startLine": 23,
+                                                        "endLine": 23,
+                                                        "startColumn": 28,
+                                                        "endColumn": 32
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "location": {
+                                                "id": 2,
+                                                "physicalLocation": {
+                                                    "artifactLocation": {
+                                                        "uri": "src/server.js",
+                                                        "uriBaseId": "%SRCROOT%"
+                                                    },
+                                                    "region": {
+                                                        "startLine": 23,
+                                                        "endLine": 23,
+                                                        "startColumn": 24,
+                                                        "endColumn": 32
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "location": {
+                                                "id": 3,
+                                                "physicalLocation": {
+                                                    "artifactLocation": {
+                                                        "uri": "src/server.js",
+                                                        "uriBaseId": "%SRCROOT%"
+                                                    },
+                                                    "region": {
+                                                        "startLine": 23,
+                                                        "endLine": 23,
+                                                        "startColumn": 24,
+                                                        "endColumn": 38
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "location": {
+                                                "id": 4,
+                                                "physicalLocation": {
+                                                    "artifactLocation": {
+                                                        "uri": "src/server.js",
+                                                        "uriBaseId": "%SRCROOT%"
+                                                    },
+                                                    "region": {
+                                                        "startLine": 23,
+                                                        "endLine": 23,
+                                                        "startColumn": 9,
+                                                        "endColumn": 21
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "location": {
+                                                "id": 5,
+                                                "physicalLocation": {
+                                                    "artifactLocation": {
+                                                        "uri": "src/server.js",
+                                                        "uriBaseId": "%SRCROOT%"
+                                                    },
+                                                    "region": {
+                                                        "startLine": 23,
+                                                        "endLine": 23,
+                                                        "startColumn": 11,
+                                                        "endColumn": 19
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "location": {
+                                                "id": 6,
+                                                "physicalLocation": {
+                                                    "artifactLocation": {
+                                                        "uri": "src/server.js",
+                                                        "uriBaseId": "%SRCROOT%"
+                                                    },
+                                                    "region": {
+                                                        "startLine": 34,
+                                                        "endLine": 34,
+                                                        "startColumn": 28,
+                                                        "endColumn": 36
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "location": {
+                                                "id": 7,
+                                                "physicalLocation": {
+                                                    "artifactLocation": {
+                                                        "uri": "src/server.js",
+                                                        "uriBaseId": "%SRCROOT%"
+                                                    },
+                                                    "region": {
+                                                        "startLine": 34,
+                                                        "endLine": 34,
+                                                        "startColumn": 37,
+                                                        "endColumn": 41
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "location": {
+                                                "id": 8,
+                                                "physicalLocation": {
+                                                    "artifactLocation": {
+                                                        "uri": "src/server.js",
+                                                        "uriBaseId": "%SRCROOT%"
+                                                    },
+                                                    "region": {
+                                                        "startLine": 34,
+                                                        "endLine": 34,
+                                                        "startColumn": 28,
+                                                        "endColumn": 41
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "location": {
+                                                "id": 9,
+                                                "physicalLocation": {
+                                                    "artifactLocation": {
+                                                        "uri": "src/server.js",
+                                                        "uriBaseId": "%SRCROOT%"
+                                                    },
+                                                    "region": {
+                                                        "startLine": 34,
+                                                        "endLine": 34,
+                                                        "startColumn": 18,
+                                                        "endColumn": 26
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "location": {
+                                                "id": 10,
+                                                "physicalLocation": {
+                                                    "artifactLocation": {
+                                                        "uri": "src/server.js",
+                                                        "uriBaseId": "%SRCROOT%"
+                                                    },
+                                                    "region": {
+                                                        "startLine": 34,
+                                                        "endLine": 34,
+                                                        "startColumn": 16,
+                                                        "endColumn": 45
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "location": {
+                                                "id": 11,
+                                                "physicalLocation": {
+                                                    "artifactLocation": {
+                                                        "uri": "src/server.js",
+                                                        "uriBaseId": "%SRCROOT%"
+                                                    },
+                                                    "region": {
+                                                        "startLine": 34,
+                                                        "endLine": 34,
+                                                        "startColumn": 8,
+                                                        "endColumn": 15
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "properties": {
+                        "isAutofixable": true,
+                        "priorityScore": 650,
+                        "priorityScoreFactors": [
+                            {
+                                "label": true,
+                                "type": "hotFileSource"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "properties": {
+                "coverage": [
+                    {
+                        "files": 1,
+                        "isSupported": true,
+                        "lang": ".js",
+                        "type": "SUPPORTED"
+                    }
+                ]
+            },
+            "automationDetails": {
+                "id": "Snyk/Code/2026-11-10T23:10:18Z"
+            }
+        }
+    ]
+}

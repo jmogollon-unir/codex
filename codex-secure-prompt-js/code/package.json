@@ -1,0 +1,18 @@
+{
+  "name": "secure-prompt-js",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Secure Express authentication endpoint backed by MongoDB and bcrypt.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-mongo-sanitize": "^2.2.0",
+    "joi": "^17.13.3",
+    "mongodb": "^6.12.0"
+  }
+}

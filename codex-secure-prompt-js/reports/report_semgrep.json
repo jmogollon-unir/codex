@@ -1,0 +1,143 @@
+{
+    "version": "1.184.0",
+    "results": [
+        {
+            "check_id": "javascript.express.security.audit.express-check-csurf-middleware-usage.express-check-csurf-middleware-usage",
+            "path": "src/server.js",
+            "start": {
+                "line": 26,
+                "col": 7,
+                "offset": 714
+            },
+            "end": {
+                "line": 26,
+                "col": 22,
+                "offset": 729
+            },
+            "extra": {
+                "message": "A CSRF middleware was not detected in your express application. Ensure you are either using one such as `csurf` or `csrf` (see rule references) and/or you are properly doing CSRF validation in your routes with a token or cookies.",
+                "metadata": {
+                    "category": "security",
+                    "references": [
+                        "https://www.npmjs.com/package/csurf",
+                        "https://www.npmjs.com/package/csrf",
+                        "https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html"
+                    ],
+                    "cwe": [
+                        "CWE-352: Cross-Site Request Forgery (CSRF)"
+                    ],
+                    "owasp": [
+                        "A01:2021 - Broken Access Control",
+                        "A01:2025 - Broken Access Control"
+                    ],
+                    "technology": [
+                        "javascript",
+                        "typescript",
+                        "express"
+                    ],
+                    "cwe2022-top25": true,
+                    "cwe2021-top25": true,
+                    "subcategory": [
+                        "audit"
+                    ],
+                    "likelihood": "LOW",
+                    "impact": "HIGH",
+                    "confidence": "LOW",
+                    "license": "Semgrep Rules License v1.0. For more details, visit semgrep.dev/legal/rules-license",
+                    "vulnerability_class": [
+                        "Cross-Site Request Forgery (CSRF)"
+                    ],
+                    "source": "https://semgrep.dev/r/javascript.express.security.audit.express-check-csurf-middleware-usage.express-check-csurf-middleware-usage",
+                    "shortlink": "https://sg.run/BxzR"
+                },
+                "severity": "INFO",
+                "fingerprint": "requires login",
+                "lines": "requires login",
+                "validation_state": "NO_VALIDATOR",
+                "engine_kind": "OSS"
+            }
+        }
+    ],
+    "errors": [],
+    "paths": {
+        "scanned": [
+            ".gitignore",
+            "README.md",
+            "package.json",
+            "src/server.js"
+        ]
+    },
+    "time": {
+        "rules": [],
+        "rules_parse_time": 0.3223991394042969,
+        "profiling_times": {
+            "config_time": 1.5271012783050537,
+            "core_time": 0.7691240310668945,
+            "ignores_time": 0.0011830329895019531,
+            "total_time": 2.3054912090301514
+        },
+        "parsing_time": {
+            "total_time": 0.013536691665649414,
+            "per_file_time": {
+                "mean": 0.0008460432291030884,
+                "std_dev": 5.206229360288362e-06
+            },
+            "very_slow_stats": {
+                "time_ratio": 0.0,
+                "count_ratio": 0.0
+            },
+            "very_slow_files": []
+        },
+        "scanning_time": {
+            "total_time": 0.07860398292541504,
+            "per_file_time": {
+                "mean": 0.007860398292541504,
+                "std_dev": 0.00029076305234468694
+            },
+            "very_slow_stats": {
+                "time_ratio": 0.0,
+                "count_ratio": 0.0
+            },
+            "very_slow_files": []
+        },
+        "matching_time": {
+            "total_time": 0.03521323204040527,
+            "per_file_and_rule_time": {
+                "mean": 0.0022008270025253296,
+                "std_dev": 1.0309745274161841e-05
+            },
+            "very_slow_stats": {
+                "time_ratio": 0.0,
+                "count_ratio": 0.0
+            },
+            "very_slow_rules_on_files": []
+        },
+        "tainting_time": {
+            "total_time": 0.006966352462768555,
+            "per_def_and_rule_time": {
+                "mean": 0.0003317310696556454,
+                "std_dev": 1.7480544186556036e-07
+            },
+            "very_slow_stats": {
+                "time_ratio": 0.0,
+                "count_ratio": 0.0
+            },
+            "very_slow_rules_on_defs": []
+        },
+        "fixpoint_timeouts": [],
+        "prefiltering": {
+            "project_level_time": 0.0,
+            "file_level_time": 0.0,
+            "rules_with_project_prefilters_ratio": 0.0,
+            "rules_with_file_prefilters_ratio": 0.9853801169590644,
+            "rules_selected_ratio": 0.04678362573099415,
+            "rules_matched_ratio": 0.04678362573099415
+        },
+        "targets": [],
+        "total_bytes": 0,
+        "max_memory_bytes": 748738176
+    },
+    "engine_requested": "OSS",
+    "skipped_rules": [],
+    "profiling_results": []
+}
